@@ -1,0 +1,33 @@
+<%- include('../partials/header') -%>
+<%- include('../partials/add_btn') -%>
+<div class="container">
+    <h1>Stories</h1>
+    <div class="row">
+        <% if (story) { %>
+            <% story.forEach(story =>{ %>
+                <div class="col-12 col-md-4">
+                    <div class="card">
+                        <!-- <%- include('../partials/edit_btn') -%> -->
+                        <div class="card-image">
+
+                        </div>
+                        <div class="card-content center-align">
+                            <h5 class=""><%= story.title %></h5>
+                            <!-- <p><%= story.body %></p> -->
+                            <div class="chip">
+                                <span><i class="fa fa-user"></i></span>
+                                <a href="/stories/user/<%= story.user._id %>" class="m-1"><%= story.user.name %></a>
+                            </div>
+                        </div>
+                        <div class="card-action center-align">
+                            <a href="/stories/<%= story._id%>" class="btn grey">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+            <%})%>
+        <%} else {%>
+            <p>No stories to display</p>
+        <% } %> 
+    </div>
+</div>
